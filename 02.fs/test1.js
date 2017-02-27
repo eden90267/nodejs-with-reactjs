@@ -5,14 +5,14 @@ var fs = require('fs');
 
 // console.log(fs);
 
-// 異步讀取檔案的內容
+// 1. 異步讀取檔案的內容
 // fs.readFile('./test.jpg', function (err, buffer) {
 //     if (err) throw err;
 //     console.log(buffer);
 // });
 // console.log('before');
 
-// 同步讀取檔案內容
+// 2. 同步讀取檔案內容
 // var file2 = fs.readFileSync('./test.txt', 'utf-8');
 // console.log(file2);
 // console.log('after');
@@ -28,7 +28,7 @@ var fs = require('fs');
 //     console.log(buffer.toString());
 // });
 
-// 寫入文字到檔案
+// 3. 寫入文字到檔案
 // fs.writeFile('./test.txt', 'Banana', (err) => {
 //     if (err) throw err;
 //     console.log('saved!');
@@ -40,7 +40,7 @@ var fs = require('fs');
 //     console.log('saved!');
 // });
 
-// 查看檔案是否存在
+// 4. 查看檔案是否存在
 // fs.exists('./test.txt', (exists) => {
 //     if (exists) {
 //         console.log('檔案存在');
@@ -49,14 +49,14 @@ var fs = require('fs');
 //     }
 // });
 
-// 創建資料夾
+// 5. 創建資料夾
 // fs.mkdir('./testDir', 0777, (err) => {
 //     if (err) throw err;
 // });
 
 // 0777是該資料夾權限 Read(4) + Write(2) + Execute(1)
 
-// 讀取目錄內檔案
+// 6. 讀取目錄內檔案
 
 // fs.readdir('../', (err, files) => {
 //     if (err) {
@@ -68,31 +68,31 @@ var fs = require('fs');
 
 // ./ 同層  ../ 上層
 
-// 監聽檔案的變更，修改後儲存即可看到console訊息
+// 7. 監聽檔案的變更，修改後儲存即可看到console訊息
 // fs.watchFile('./test.txt', (curr, prev) => {
 //     console.log(`現在時間是：${curr.mtime}`);
 //     console.log(`上次修改時間：${prev.mtime}`);
 // });
 
-// 更改檔案名稱
+// 8. 更改檔案名稱
 // fs.rename('./test11.txt', './test123.txt', (err) => {
 //     if (err) throw err;
 //     console.log('file name changed!');
 // });
 
-// 刪除檔案
+// 9. 刪除檔案
 // fs.unlink('./test123.txt', (err) => {
 //     if (err) throw err;
 //     console.log('deleted');
 // });
 
-// 刪除資料夾
+// 10. 刪除資料夾
 // fs.rmdir('./dir', (err) => {
 //     if (err) throw err;
 //     console.log('deleted!');
 // });
 
-// 複製檔案
+// 11. 複製檔案
 // function copy(src, target) {
 //     console.log(target);
 //     fs.writeFileSync(target, fs.readFileSync(src));
@@ -102,10 +102,10 @@ var fs = require('fs');
 // 上面這種方式效能不好，且會造成內存泄露
 // 可使用如下的stream方式
 
-function copy(src, target) {
-    fs.createReadStream(src).pipe(fs.createWriteStream(target));
-}
-copy('./test.txt', 'test2.txt');
+// function copy(src, target) {
+//     fs.createReadStream(src).pipe(fs.createWriteStream(target));
+// }
+// copy('./test.txt', 'test2.txt');
 
 // 想像pipe是一個水管，把水從A直接流到B
 // createReadStream 為水從水管進入那一端
