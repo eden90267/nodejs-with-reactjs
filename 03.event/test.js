@@ -69,16 +69,16 @@ var emitter = new EventEmitter();
 
 
 // 8. 取得指定名稱的監聽事件中所有的callback
-function getAll() {
-    console.log(emitter.listeners('sleeping'));
-}
-emitter.on('sleeping', callback);
-emitter.on('sleeping', callback1);
-
-function callback() {
-
-}
-function callback1() {
-
-}
-getAll();
+// function getAll() {
+//     console.log(emitter.listeners('sleeping'));
+// }
+// emitter.on('sleeping', callback);
+// emitter.on('sleeping', callback1);
+//
+// function callback() {
+//
+// }
+// function callback1() {
+//
+// }
+// getAll();
