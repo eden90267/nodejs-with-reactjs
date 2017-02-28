@@ -178,11 +178,11 @@
 // 21. uncaughtException
 //     當前進程拋出一個沒有被catch的錯誤時，會觸發uncaughtException事件
 
-process.on('uncaughtException', (err) => {
-    console.error('An uncaught error occurred!');
-    console.error(err.stack);
-    throw new Error('產生錯誤');
-});
-throw new Error('something wrong');
+// process.on('uncaughtException', (err) => {
+//     console.error('An uncaught error occurred!');
+//     console.error(err.stack);
+//     throw new Error('產生錯誤');
+// });
+// throw new Error('something wrong');
 
 // uncaughtException事件，是免於Node進程終止的最後措施，否則Node就要執行process.exit();
