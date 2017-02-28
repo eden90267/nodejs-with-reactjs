@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/eden90267/nodejs-with-reactjs/issues"
   },
-  "homepage": "https://github.com/eden90267/nodejs-with-reactjs#readme"
+  "homepage": "https://github.com/eden90267/nodejs-with-reactjs#readme",
+  "dependencies": {
+    "ansi-styles": "^3.0.0"
+  }
 }
