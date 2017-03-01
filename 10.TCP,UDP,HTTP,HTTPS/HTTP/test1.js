@@ -96,34 +96,50 @@ var http = require('http');
 
 
 // 8. 使用 http.request 發出 POST 請求
-var queststring = require('querystring');
-var postData = queststring.stringify({
-    'msg': 'Hello World!'
-});
+// var queststring = require('querystring');
+// var postData = queststring.stringify({
+//     'msg': 'Hello World!'
+// });
+//
+// var options = {
+//     hostname: '127.0.0.1',
+//     port: 8000,
+//     path: '/main',
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/x-www-form-urlencoded',
+//         'Content-Length': postData.length
+//     }
+// };
+//
+// var req = http.request(options, (res) => {
+//     console.log('STATUS: ' + res.statusCode);
+//     console.log('HEADERS: ' + JSON.stringify(res.headers));
+//     res.setEncoding('utf8');
+//     res.on('data', (chunk) => {
+//         console.log('BODY: ' + chunk);
+//     });
+// });
+//
+// req.on('error', (e) => {
+//     console.log('problem with request: ' + e.message);
+// });
+//
+// req.write(postData);
+// req.end();
+
+
+// HTTPS
+var https = require('https');
+var fs = require('fs');
 
 var options = {
-    hostname: '127.0.0.1',
-    port: 8000,
-    path: '/main',
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-        'Content-Length': postData.length
-    }
+    key: fs.readFileSync('./server-key.pem'),
+    ca: [fs.readFileSync('./cert.pem')],
+    cert: fs.readFileSync('./server-cert.pem')
 };
 
-var req = http.request(options, (res) => {
-    console.log('STATUS: ' + res.statusCode);
-    console.log('HEADERS: ' + JSON.stringify(res.headers));
-    res.setEncoding('utf8');
-    res.on('data', (chunk) => {
-        console.log('BODY: ' + chunk);
-    });
-});
-
-req.on('error', (e) => {
-    console.log('problem with request: ' + e.message);
-});
-
-req.write(postData);
-req.end();
+https.createServer(options, (req, res) => {
+    res.writeHead(200);
+    res.end('hello world\n');
+}).listen(3000, '127.0.0.1');
