@@ -4,8 +4,12 @@
 
 </head>
 <body>
-<h1><%= title %></h1>
-<h1><%= message %></h1>
-<h1><%= test %></h1>
+  <form enctype="multipart/form-data" action="/upload" method="post">
+    <input type="file" name="file" />
+    <input type="submit" value="點擊確認上傳" name="submit" />
+  </form>
+
 </body>
+
+
 </html>
